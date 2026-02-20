@@ -2,7 +2,11 @@
   "gateway": {
     "bind": "lan",
     "controlUi": {
-      "allowInsecureTokenAuth": true
-    }
+      "allowInsecureAuth": true
+    },
+    "auth": {
+      "mode": "token"
+    },
+    "trustedProxies": ["10.0.0.0/8", "172.16.0.0/12"]
   }
 }
