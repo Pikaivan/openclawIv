@@ -27,15 +27,32 @@ RUN pnpm install --frozen-lockfile
 # Build with: docker build --build-arg OPENCLAW_INSTALL_BROWSER=1 ...
 # Adds ~300MB but eliminates the 60-90s Playwright install on every container start.
 # Must run after pnpm install so playwright-core is available in node_modules.
+# Install Chromium for Playwright (optional, enabled via build arg)
 ARG OPENCLAW_INSTALL_BROWSER=""
+# Store browsers inside /app so non-root user can access them
+ENV PLAYWRIGHT_BROWSERS_PATH=/app/.cache/ms-playwright
 RUN if [ -n "$OPENCLAW_INSTALL_BROWSER" ]; then \
+      echo "Installing Playwright Chromium..." && \
+      mkdir -p /app/.cache/ms-playwright && \
       apt-get update && \
-      DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends xvfb && \
-      node /app/node_modules/playwright-core/cli.js install --with-deps chromium && \
+      DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        xvfb \
+        libnss3 \
+        libatk-bridge2.0-0 \
+        libdrm2 \
+        libxkbcommon0 \
+        libxcomposite1 \
+        libxdamage1 \
+        libxrandr2 \
+        libgbm1 \
+        libasound2 \
+        libxshmfence1 \
+        libgtk-3-0 && \
+      node /app/node_modules/playwright-core/cli.js install chromium && \
+      chown -R node:node /app/.cache && \
       apt-get clean && \
       rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*; \
     fi
-
 COPY . .
 RUN pnpm build
 # Force pnpm for UI build (Bun may fail on ARM/Synology architectures)
