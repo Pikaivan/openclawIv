@@ -7,5 +7,20 @@
       "mode": "token"
     },
     "trustedProxies": ["10.0.0.0/8", "172.16.0.0/12"]
+  },
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto",
+    "restart": true
+  },
+  "plugins": {
+    "entries": {
+      "telegram": {
+        "enabled": true
+      },
+      "slack": {
+        "enabled": true
+      }
+    }
   }
 }
