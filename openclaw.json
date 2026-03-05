@@ -23,5 +23,31 @@
       }
     }
   },
-  "defaultModel": "anthropic/claude-sonnet-4-20250514"
+  "defaultModel": "anthropic/claude-sonnet-4-20250514",
+  "agents": {
+    "list": [
+      {
+        "id": "main",
+        "default": true
+      },
+      {
+        "id": "analyst", 
+        "workspace": "/data/.openclaw/agents/analyst/workspace"
+      }
+    ]
+  },
+  "bindings": [
+    {
+      "agentId": "analyst",
+      "match": {
+        "channel": "slack"
+      }
+    },
+    {
+      "agentId": "main",
+      "match": {
+        "channel": "telegram"
+      }
+    }
+  ]
 }
