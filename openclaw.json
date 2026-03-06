@@ -1,5 +1,6 @@
 {
   "gateway": {
+    "mode": "local",
     "controlUi": {
       "allowInsecureAuth": true
     },
@@ -30,12 +31,28 @@
         "default": true
       },
       {
-        "id": "analyst", 
+        "id": "analyst",
         "workspace": "/data/.openclaw/agents/analyst/workspace"
+      },
+      {
+        "id": "analyst-jun",
+        "name": "analyst-jun", 
+        "workspace": "/data/.openclaw/agents/analyst-jun/workspace",
+        "agentDir": "/data/.openclaw/agents/analyst-jun/agent"
       }
     ]
   },
   "bindings": [
+    {
+      "agentId": "analyst-jun",
+      "match": {
+        "channel": "slack",
+        "peer": {
+          "kind": "channel",
+          "id": "C0AJUEWLBSR"
+        }
+      }
+    },
     {
       "agentId": "analyst",
       "match": {
