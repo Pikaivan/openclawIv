@@ -1,7 +1,6 @@
 {
   "gateway": {
     "mode": "local",
-    "publicUrl": "wss://openclaw-namm.onrender.com",
     "controlUi": {
       "allowInsecureAuth": true
     },
