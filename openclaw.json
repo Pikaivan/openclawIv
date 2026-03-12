@@ -11,7 +11,7 @@
   },
   "commands": {
     "native": "auto",
-    "nativeSkills": "auto", 
+    "nativeSkills": "auto",
     "restart": true
   },
   "plugins": {
@@ -46,11 +46,11 @@
       },
       {
         "id": "analyst-jun",
-        "name": "analyst-jun", 
+        "name": "analyst-jun",
         "workspace": "/data/.openclaw/agents/analyst-jun/workspace",
         "agentDir": "/data/.openclaw/agents/analyst-jun/agent",
         "heartbeat": {
-          "every": "45m", 
+          "every": "45m",
           "target": "last"
         }
       }
@@ -79,5 +79,14 @@
         "channel": "telegram"
       }
     }
-  ]
+  ],
+  "spawn": {
+    "allowCrossAgent": true,
+    "requirePairing": false,
+    "allowAny": true
+  },
+  "sessions": {
+    "allowSpawn": true,
+    "crossAgentAccess": true
+  }
 }
