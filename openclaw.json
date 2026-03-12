@@ -11,7 +11,7 @@
   },
   "commands": {
     "native": "auto",
-    "nativeSkills": "auto",
+    "nativeSkills": "auto", 
     "restart": true
   },
   "plugins": {
@@ -25,6 +25,12 @@
     }
   },
   "agents": {
+    "defaults": {
+      "heartbeat": {
+        "every": "30m",
+        "target": "last"
+      }
+    },
     "list": [
       {
         "id": "main",
@@ -32,13 +38,21 @@
       },
       {
         "id": "analyst",
-        "workspace": "/data/.openclaw/agents/analyst/workspace"
+        "workspace": "/data/.openclaw/agents/analyst/workspace",
+        "heartbeat": {
+          "every": "30m",
+          "target": "last"
+        }
       },
       {
         "id": "analyst-jun",
-        "name": "analyst-jun",
+        "name": "analyst-jun", 
         "workspace": "/data/.openclaw/agents/analyst-jun/workspace",
-        "agentDir": "/data/.openclaw/agents/analyst-jun/agent"
+        "agentDir": "/data/.openclaw/agents/analyst-jun/agent",
+        "heartbeat": {
+          "every": "45m", 
+          "target": "last"
+        }
       }
     ]
   },
@@ -64,18 +78,6 @@
       "match": {
         "channel": "telegram"
       }
-    }
-  ],
-  "heartbeat": [
-    {
-      "agentId": "analyst",
-      "intervalMinutes": 30,
-      "channel": "slack"
-    },
-    {
-      "agentId": "analyst-jun", 
-      "intervalMinutes": 45,
-      "channel": "slack"
     }
   ]
 }
