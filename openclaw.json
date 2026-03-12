@@ -28,7 +28,7 @@
     "defaults": {
       "heartbeat": {
         "every": "30m",
-        "target": "agent"
+        "target": "last"
       },
       "subagents": {
         "maxConcurrent": 8
@@ -40,7 +40,7 @@
         "default": true,
         "heartbeat": {
           "every": "30m",
-          "target": "agent"
+          "target": "last"
         },
         "subagents": {
           "allowAgents": ["*"]
@@ -51,7 +51,7 @@
         "workspace": "/data/.openclaw/agents/analyst/workspace",
         "heartbeat": {
           "every": "30m",
-          "target": "agent"
+          "target": "last"
         },
         "subagents": {
           "allowAgents": ["*"]
@@ -64,7 +64,7 @@
         "agentDir": "/data/.openclaw/agents/analyst-jun/agent",
         "heartbeat": {
           "every": "45m",
-          "target": "agent"
+          "target": "last"
         },
         "subagents": {
           "allowAgents": ["*"]
