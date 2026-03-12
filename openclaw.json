@@ -1,6 +1,7 @@
 {
   "gateway": {
     "mode": "local",
+    "publicUrl": "wss://openclaw-namm.onrender.com",
     "controlUi": {
       "allowInsecureAuth": true
     },
@@ -29,12 +30,18 @@
       "heartbeat": {
         "every": "30m",
         "target": "last"
+      },
+      "subagents": {
+        "maxConcurrent": 8
       }
     },
     "list": [
       {
         "id": "main",
-        "default": true
+        "default": true,
+        "subagents": {
+          "allowAgents": ["*"]
+        }
       },
       {
         "id": "analyst",
@@ -42,6 +49,9 @@
         "heartbeat": {
           "every": "30m",
           "target": "last"
+        },
+        "subagents": {
+          "allowAgents": ["*"]
         }
       },
       {
@@ -52,6 +62,9 @@
         "heartbeat": {
           "every": "45m",
           "target": "last"
+        },
+        "subagents": {
+          "allowAgents": ["*"]
         }
       }
     ]
@@ -79,14 +92,5 @@
         "channel": "telegram"
       }
     }
-  ],
-  "spawn": {
-    "allowCrossAgent": true,
-    "requirePairing": false,
-    "allowAny": true
-  },
-  "sessions": {
-    "allowSpawn": true,
-    "crossAgentAccess": true
-  }
+  ]
 }
