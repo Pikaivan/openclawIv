@@ -27,7 +27,7 @@
   "agents": {
     "defaults": {
       "heartbeat": {
-        "every": "4h"
+        "every": "12h"
       },
       "subagents": {
         "maxConcurrent": 8
@@ -39,7 +39,7 @@
         "default": true,
         "workspace": "/data/.openclaw/agents/main/workspace",
         "heartbeat": {
-          "every": "4h"
+          "every": "12h"
         },
         "model": "claude-sonnet-4-20250514",
         "subagents": {
@@ -50,7 +50,7 @@
         "id": "analyst",
         "workspace": "/data/.openclaw/agents/analyst/workspace",
         "heartbeat": {
-          "every": "4h"
+          "every": "12h"
         },
         "model": "claude-sonnet-4-20250514",
         "subagents": {
@@ -63,7 +63,7 @@
         "workspace": "/data/.openclaw/agents/analyst-jun/workspace",
         "agentDir": "/data/.openclaw/agents/analyst-jun/agent",
         "heartbeat": {
-          "every": "4h"
+          "every": "12h"
         },
         "model": "claude-sonnet-4-20250514",
         "subagents": {
